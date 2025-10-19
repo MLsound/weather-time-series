@@ -4,28 +4,37 @@ Este repositorio contiene un **Análisis Exploratorio de Datos (EDA)** detallado
 
 ## 🇬🇧 English Summary
 
-This repository presents a detailed **Exploratory Data Analysis (EDA)** of the **Weather Long-term Time Series Forecasting** dataset from Kaggle. The project focuses on cleaning, visualizing, and analyzing over 52,000 high-frequency meteorological records from the **Max Planck Institute** during the entire year of **2020**. Key activities include feature recognition, descriptive statistics, identification of extreme weather events, and a thorough correlation analysis between atmospheric variables like temperature, humidity, pressure, and solar radiation.
+This repository presents a detailed **Exploratory Data Analysis (EDA)** of the **Weather Long-term Time Series Forecasting** dataset from Kaggle. The project focuses on cleaning, visualizing, and analyzing over 473,111 high-frequency meteorological records from the **Max Planck Institute** during **8 years**. Key activities include feature recognition, descriptive statistics, identification of extreme weather events, and a thorough correlation analysis between atmospheric variables like temperature, humidity, pressure, and solar radiation.
 
 ---
 
 ## 📝 Descripción del Proyecto
 
-El notebook `Weather-TS-EDA.ipynb` realiza un estudio exhaustivo de un conjunto de datos de series de tiempo climáticas.
+El notebook `Weather-TS-EDA.ipynb` realiza un estudio exhaustivo de un conjunto de datos de series de tiempo climáticas correspondientes al período 2009 a 2016 y del año 2020.
 
-* **Origen de Datos:** El dataset proviene de [Kaggle Dataset](https://www.kaggle.com/datasets/alistairking/weather-long-term-time-series-forecasting).
-* **Contenido del Dataset:** El conjunto de datos abarca mediciones tomadas cada **10 minutos** a lo largo de todo el **año 2020**, sumando más de **52.560 puntos de datos** por variable. Incluye **20 indicadores meteorológicos** (temperatura, humedad, patrones de viento, radiación, precipitación y cantidades derivadas) medidos en una estación del **Instituto Max Planck**.
+* **Origen de Datos:** se dispone de 2 datasets provientes de Kaggle:
+    1. [Dataset year 2020](https://www.kaggle.com/datasets/alistairking/weather-long-term-time-series-forecasting)
+    2. [Dataset years 2009-2016](https://www.kaggle.com/datasets/arashnic/max-planck-weather-dataset)
+
+* **Contenido del Dataset:** El conjunto de datos abarca mediciones tomadas cada **10 minutos** a lo largo de **8 años**, **473.111 puntos de datos** con **+14 indicadores meteorológicos** (temperatura, humedad, patrones de viento, radiación, precipitación y cantidades derivadas) medidos en una estación del **Instituto Max Planck**.
+
+    1. **Datos 2020:** Incluye **52.560 puntos de datos** con **20 indicadores meteorológicos** (temperatura, humedad, patrones de viento y cantidades derivadas). Cuenta además con 6 indicadores adicionales (de precipitación y radiación solar). [**Resultados EDA**](Weather-TS-EDA.ipynb)
+    2. **Datos 2009-2016:** Incluye **420.551 puntos de datos** con **14 indicadores meteorológicos** (temperatura, humedad, patrones de viento y cantidades derivadas). [**Resultados EDA**](Weather-TS-EDA2.ipynb)
+
 * **Objetivo:** Preparar los datos y obtener *insights* valiosos que servirán de base para futuros proyectos de *Machine Learning* y pronóstico de series de tiempo.
 
 ## 🚀 Contenido del Notebook (`Weather-TS-EDA.ipynb`)
 
 El análisis está estructurado en las siguientes secciones principales:
 
-1.  **Importación y Descripción del Dataset:** Carga de datos, reconocimiento de *features* (variables) y estadísticas descriptivas básicas (`df.head()`, `df.info()`, `df.describe().T`).
+1.  **Importación y Descripción del Dataset:** Carga de datos, reconocimiento de *features* (variables) y estadísticas descriptivas básicas.
 2.  **Ingeniería de Características de Tiempo:** Extracción de variables temporales (`hour`, `month`, `day`) e identificación de **Eventos Extremos** (máximas y mínimas de temperatura, viento y lluvia diaria).
 3.  **Análisis de Correlación entre Variables:** Estudio de las relaciones lineales entre los indicadores meteorológicos.
     * Se observa una fuerte correlación positiva entre las variables de temperatura (`T`, `Tpot`, `Tdew`).
     * Existe una correlación negativa entre la **Radiación de Onda Corta ($SWDR$)** y la **Humedad Relativa ($rh$)** (días más soleados son menos húmedos).
     * Las variables de **Lluvia** muestran una correlación muy débil con la mayoría de los otros indicadores, lo que sugiere su naturaleza estocástica.
+
+***NOTA:*** este Notebook fue utilizado para ambos subconjuntos con pequeñas modificaciones.
 
 ## 🛠️ Tecnologías y Requisitos
 
@@ -50,9 +59,9 @@ pip install jupyter
 ```
 
 ### 2. Obten el Dataset
-Asegúrate de que el archivo de datos ([cleaned_weather.csv](cleaned_weather.csv)) esté en el directorio raíz o en la ruta especificada en la celda de importación de datos.
+Asegúrate de que el archivo de datos CSV correspondiente esté en el directorio raíz o en la ruta especificada en la celda de importación de datos.
 
-Alternativamente puede ser descargado desde [Kaggle](https://www.kaggle.com/datasets/alistairking/weather-long-term-time-series-forecasting).
+Alternativamente pueden ser descargados desde Kaggle: [2020](https://www.kaggle.com/datasets/alistairking/weather-long-term-time-series-forecasting) / [2009-2016](https://www.kaggle.com/datasets/arashnic/max-planck-weather-dataset)
 
 ### 3. Abre el Notebook
 Una vez que tengas Jupyter instalado, inicia y abre el archivo en tu navegador:
